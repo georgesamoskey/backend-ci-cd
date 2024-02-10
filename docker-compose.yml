@@ -1,4 +1,4 @@
-# version: "3.8"
+# version: "3.7"
 # services:
 #   payall-spring-boot:
 #     container_name:  payall-spring-boot

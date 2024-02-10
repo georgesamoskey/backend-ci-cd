@@ -11,4 +11,4 @@ services:
   web:
     build: ./
     ports:
-      - "8087:8087"
+      - "8097:8097"

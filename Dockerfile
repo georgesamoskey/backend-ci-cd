@@ -10,10 +10,10 @@ RUN mvn -f clean package -DskipTests
 # Use an official OpenJDK image as the base 
 FROM openjdk:17
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /payall
 # Copy the built JAR file from the previous stage to the container
 # COPY - from=build /payall/target/*.jar  app.jar
-COPY --from=build /payall/app/target/*.jar app.jar
+COPY --from=build /payall/target/*.jar app.jar
 
 # Set the command to run the application
 CMD ["java", "-jar", "app.jar"]

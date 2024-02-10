@@ -12,6 +12,8 @@ FROM openjdk:11-jre-slim
 # Set the working directory in the container
 WORKDIR /app
 # Copy the built JAR file from the previous stage to the container
-COPY - from=build /payall/target/payall-3.2.1.jar .
+# COPY - from=build /payall/target/*.jar  app.jar
+COPY --from=build /payall/app/target/*.jar app.jar
+
 # Set the command to run the application
-CMD ["java", "-jar", "payall-3.2.1.jar","daemon off;"]
+CMD ["java", "-jar", "app.jar"]

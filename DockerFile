@@ -7,7 +7,7 @@ COPY pom.xml .
 COPY src ./src
 # Build the application using Maven
 RUN mvn clean package -DskipTests
-# Use an official OpenJDK image as the base image
+# Use an official OpenJDK image as the base 
 FROM openjdk:11-jre-slim
 # Set the working directory in the container
 WORKDIR /app

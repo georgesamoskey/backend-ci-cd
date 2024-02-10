@@ -24,16 +24,16 @@ pipeline {
 
     stage('Check Response') {
         steps {
-            bat 'curl http://localhost:8097/categorieAuto'
+            bat 'curl http://localhost'
         }
-}
+    }
     
-  post{
-      always{
-          sh 'docker compose down --remove-orphans -v'
-          sh 'docker compose ps'
-      }
-  }
+  // post{
+  //     always{
+  //         sh 'docker compose down --remove-orphans -v'
+  //         sh 'docker compose ps'
+  //     }
+  // }
 
   }
 }

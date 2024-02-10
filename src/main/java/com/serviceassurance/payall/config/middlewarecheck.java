@@ -42,7 +42,6 @@ public class middlewarecheck extends OncePerRequestFilter {
         // String responseEntity = restTemplate.getForObject(
         //         "http://192.168.20.17:8080/realms/example/check?apiKey=" + requestApiKey,
         //         String.class);
-
         // logger.info("ieeieieiei" + responseEntity);
         // return;
 

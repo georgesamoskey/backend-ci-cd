@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/categorieAuto")
 // @CrossOrigin(origins = "*")
-
 public class checkApiKey {
 
 private class data {

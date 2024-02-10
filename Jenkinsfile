@@ -32,8 +32,8 @@ pipeline {
 
   post{
     always{
-        // sh 'docker compose down --remove-orphans -v'
-        sh 'docker compose ps'
+        bat 'docker compose down --remove-orphans -v'
+        bat 'docker compose ps'
     }
 }
 }

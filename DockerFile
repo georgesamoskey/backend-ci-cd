@@ -11,7 +11,7 @@ RUN mvn clean package -DskipTests
 FROM openjdk:11-jre-slim
 # Set the working directory in the container
 WORKDIR /app
-# Copy the built JAR file from the previous stage to the container
+# Copy the built JAR file from the previous stage to the 
 COPY - from=build /app/target/payall-3.2.1.jar ./
 # Set the command to run the application
 CMD ["java", "-jar", "payall-3.2.1.jar"]

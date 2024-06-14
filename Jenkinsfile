@@ -1,27 +1,27 @@
 pipeline {
   agent any
   environment {
-    PATH = "/snap/bin:$PATH"
+        DOCKER_BINARY = '/snap/bin/docker'
    }
 
   stages {
     stage("Verifications docker ") {
       steps {
-        sh 'snap run docker version'
-        sh 'snap run docker info'
-        sh 'snap run docker compose version'
-        sh 'snap run curl --version'
+        sh '${DOCKER_BINARY} run docker version'
+        sh '${DOCKER_BINARY} run docker info'
+        sh '${DOCKER_BINARY} run docker compose version'
+        sh '${DOCKER_BINARY} run curl --version'
             }
         }
     stage("Creations des volumes ") {
      steps {
-            sh 'snap run docker system prune -a --volumes -f'
+            sh '${DOCKER_BINARY} run docker system prune -a --volumes -f'
         }
     }
     stage(" Deploiement ") {
      steps {
-             sh 'snap run docker compose up -d  --no-color --wait'
-             sh 'snap run docker compose ps'
+             sh '${DOCKER_BINARY} run docker compose up -d  --no-color --wait'
+             sh '${DOCKER_BINARY} run docker compose ps'
         }
     }
     
@@ -37,7 +37,7 @@ pipeline {
   post{
     always{
         // bat 'docker compose down --remove-orphans
-        sh 'snap run docker compose ps'
+        sh '${DOCKER_BINARY} run docker compose ps'
     }
 }
 }

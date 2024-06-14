@@ -36,7 +36,7 @@ pipeline {
 
   post{
     always{
-        // bat 'docker compose down --remove-orphans
+        // bat 'docker compose down --remove-orphanss
         sh 'snap run docker compose ps'
     }
 }

@@ -24,7 +24,7 @@ pipeline {
 
     stage('Check Response') {
         steps {
-            sh 'curl http://localhost'
+            sh 'curl http://localhost:8097'
         }
     } 
 

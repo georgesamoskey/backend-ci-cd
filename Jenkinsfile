@@ -1,27 +1,23 @@
 pipeline {
   agent any
-  environment {
-    PATH = "/snap/bin:$PATH"
-   }
-
   stages {
-    stage("Verifications docker ") {
+    stage("Verifications des outils ") {
       steps {
-        sh 'snap run docker version'
-        sh 'snap run docker info'
-        sh 'snap run docker compose version'
-        sh 'snap runcurl --version'
+        sh 'docker version'
+        sh 'docker info'
+        sh 'docker compose version'
+        sh 'curl --version'
             }
         }
     stage("Creations des volumes ") {
      steps {
-            sh 'snap run docker system prune -a --volumes -f'
+            sh 'docker system prune -a --volumes -f'
         }
     }
-    stage(" Deploiement ") {
+    stage(" Demarrage de container ") {
      steps {
-             sh 'snap run docker compose up -d  --no-color --wait'
-             sh 'snap run docker compose ps'
+             sh 'docker compose up -d  --no-color --wait'
+             sh 'docker compose ps'
         }
     }
     
@@ -36,8 +32,8 @@ pipeline {
 
   post{
     always{
-        // bat 'docker compose down --remove-orphanss
-        sh 'snap run docker compose ps'
+        // bat 'docker compose down --remove-orphans
+        sh 'docker compose ps'
     }
 }
 }

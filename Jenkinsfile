@@ -4,20 +4,20 @@ pipeline {
     stage("Verifications des outils ") {
       steps {
         sh 'snapctl run docker version'
-        sh 'docker info'
-        sh 'docker compose version'
-        sh 'curl --version'
+        sh 'snapctl run docker info'
+        sh 'snapctl run docker compose version'
+        sh 'snapctl runcurl --version'
             }
         }
     stage("Creations des volumes ") {
      steps {
-            sh 'docker system prune -a --volumes -f'
+            sh 'snapctl run docker system prune -a --volumes -f'
         }
     }
     stage(" Demarrage de container ") {
      steps {
-             sh 'docker compose up -d  --no-color --wait'
-             sh 'docker compose ps'
+             sh 'snapctl run docker compose up -d  --no-color --wait'
+             sh 'snapctl run docker compose ps'
         }
     }
     
@@ -33,7 +33,7 @@ pipeline {
   post{
     always{
         // bat 'docker compose down --remove-orphans
-        sh 'docker compose ps'
+        sh 'snapctl run docker compose ps'
     }
 }
 }

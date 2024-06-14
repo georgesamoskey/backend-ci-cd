@@ -14,7 +14,7 @@ pipeline {
             sh 'docker system prune -a --volumes -f'
         }
     }
-    stage(" Demarrage de container ") {
+    stage(" Deploiement de container ") {
      steps {
              sh 'docker compose up -d  --no-color --wait'
              sh 'docker compose ps'
@@ -22,7 +22,7 @@ pipeline {
     }
     
 
-    stage('Check Response') {
+    stage('Verification de la  response') {
         steps {
             sh 'curl http://localhost:8097'
         }

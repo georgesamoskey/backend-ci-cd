@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  environment {
+    PATH = "/snap/bin:$PATH"
+   }
+
   stages {
     stage("Verifications docker ") {
       steps {

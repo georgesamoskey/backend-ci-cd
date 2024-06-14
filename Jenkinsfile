@@ -7,10 +7,10 @@ pipeline {
   stages {
     stage("Verifications docker ") {
       steps {
-        sh 'snap run docker version'
-        sh 'snap run docker info'
-        sh 'snap run docker compose version'
-        sh 'snap run curl --version'
+        sh 'snapctl --user=jenkins run docker version'
+        // sh 'snap run docker info'
+        // sh 'snap run docker compose version'
+        // sh 'snap run curl --version'
             }
         }
     stage("Creations des volumes ") {

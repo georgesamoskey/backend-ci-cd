@@ -10,7 +10,7 @@ pipeline {
         sh 'snapctl run docker version'
         sh 'snapctl run docker info'
         sh 'snapctl run docker compose version'
-        sh 'snapctl runcurl --version'
+        sh 'snapctl run curl --version'
             }
         }
     stage("Creations des volumes ") {

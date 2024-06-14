@@ -1,16 +1,16 @@
 pipeline {
   agent any
   environment {
-        DOCKER_HOST = 'unix:///var/run/docker.sock'
+    PATH = "/snap/bin:$PATH"
    }
 
   stages {
     stage("Verifications docker ") {
       steps {
-        sh ' docker version'
-        // sh 'snap run docker info'
-        // sh 'snap run docker compose version'
-        // sh 'snap runcurl --version'
+        sh 'snap run docker version'
+        sh 'snap run docker info'
+        sh 'snap run docker compose version'
+        sh 'snap runcurl --version'
             }
         }
     stage("Creations des volumes ") {

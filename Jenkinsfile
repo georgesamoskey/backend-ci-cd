@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage("Verifications des outils ") {
+    stage("Verifications docker ") {
       steps {
         sh 'snapctl run docker version'
         sh 'snapctl run docker info'
@@ -14,7 +14,7 @@ pipeline {
             sh 'snapctl run docker system prune -a --volumes -f'
         }
     }
-    stage(" Demarrage de container ") {
+    stage(" Deploiement ") {
      steps {
              sh 'snapctl run docker compose up -d  --no-color --wait'
              sh 'snapctl run docker compose ps'

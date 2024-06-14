@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage("Verifications des outils ") {
       steps {
-        sh 'snapctl docker version'
+        sh 'snapctl run docker version'
         sh 'docker info'
         sh 'docker compose version'
         sh 'curl --version'

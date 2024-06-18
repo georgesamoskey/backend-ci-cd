@@ -32,7 +32,7 @@ pipeline {
 
   post{
     always{
-        // bat 'docker compose down --remove-orphans
+        // bat 'docker compose down --remove-
         sh 'docker compose ps'
     }
 }
